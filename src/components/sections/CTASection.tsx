@@ -1,15 +1,15 @@
 import { bookingHref, bookingLabel, contactHref, site } from '@/lib/site';
+import { cta } from '@/lib/content';
 
 export function CTASection() {
   return (
     <section className="px-6 py-16 md:py-24 lg:px-8">
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">
-          Tell us what&apos;s slow.
+          {cta.heading}
         </h2>
         <p className="mt-4 text-lg text-slate-600">
-          If it&apos;s a fit, you get a written scope and a price. If it&apos;s not,
-          you get an honest answer and a pointer somewhere better.
+          {cta.body}
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">

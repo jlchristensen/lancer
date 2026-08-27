@@ -1,4 +1,5 @@
-import { bookingHref, bookingLabel, contactHref, site } from '@/lib/site';
+import { bookingHref, bookingLabel, contactHref } from '@/lib/site';
+import { hero } from '@/lib/content';
 
 export function HeroSection() {
   return (
@@ -8,16 +9,15 @@ export function HeroSection() {
       <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-semibold tracking-wide text-brand-700 uppercase">
-            {site.wordmark}
+            {hero.eyebrow}
           </p>
 
           <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
-            We build the software your business is missing.
+            {hero.headline}
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
-            Websites, products, and the internal tools behind them. Fixed
-            scope, fixed price, and you own everything at the end.
+            {hero.subhead}
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">

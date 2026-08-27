@@ -1,23 +1,4 @@
-const steps = [
-  {
-    number: '1',
-    title: 'Call',
-    description:
-      "Twenty minutes on what's slow, what's manual, and what it costs you today.",
-  },
-  {
-    number: '2',
-    title: 'Scope',
-    description:
-      'A written plan with a fixed price and a date on it. No hourly meter, no surprises.',
-  },
-  {
-    number: '3',
-    title: 'Build and hand off',
-    description:
-      'Working software in front of you every week. At the end you own the code, the accounts, and the documentation.',
-  },
-];
+import { sections, steps } from '@/lib/content';
 
 export function HowItWorksSection() {
   return (
@@ -25,11 +6,9 @@ export function HowItWorksSection() {
       <div className="mx-auto max-w-6xl">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">
-            How it works
+            {sections.stepsHeading}
           </h2>
-          <p className="mt-4 text-lg text-slate-600">
-            Three steps, in order. Each one ends with something you can look at.
-          </p>
+          <p className="mt-4 text-lg text-slate-600">{sections.stepsSubhead}</p>
         </div>
 
         <ol className="mt-12 grid gap-8 md:grid-cols-3">

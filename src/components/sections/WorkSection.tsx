@@ -1,4 +1,5 @@
 import { products } from '@/lib/site';
+import { sections } from '@/lib/content';
 
 export function WorkSection() {
   return (
@@ -6,10 +7,10 @@ export function WorkSection() {
       <div className="mx-auto max-w-6xl">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">
-            Built by Lancer
+            {sections.workHeading}
           </h2>
           <p className="mt-4 text-lg text-slate-600">
-            These are ours. Same hands, same standards as the client work.
+            {sections.workSubhead}
           </p>
         </div>
 
