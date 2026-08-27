@@ -37,6 +37,21 @@
   --color-iris-600: #4a5bf0;
   --color-azure-400: #38bdf8;
   --color-violet-400: #b17cf5;
+
+  /* Second pass on the dark options. No indigo, no gradients on type.
+     Bone and ash carry almost everything, one signal colour per design. */
+  --color-bone: #ece5d8;
+  --color-ash: #8b857c;
+  --color-ash-dim: #5a554e;
+  --color-ember: #d9522b;
+  --color-sodium: #e9a23b;
+  --color-pitch: #08080a;
+  --color-pitch-2: #101013;
+
+  /* Faces used only by the dark options. Loaded in app/options/layout.tsx
+     so the live page keeps its own typography. */
+  --font-heavy: var(--font-archivo-src);
+  --font-code: var(--font-plex-src);
 }
 
 html {

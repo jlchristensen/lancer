@@ -2,76 +2,124 @@ import Link from 'next/link';
 
 export const metadata = { title: 'Landing page options' };
 
-const options = [
+type Option = {
+  slug: string;
+  letter: string;
+  name: string;
+  summary: string;
+  motion: string;
+};
+
+const current: Option[] = [
+  {
+    slug: 'd',
+    letter: 'D',
+    name: 'Ridge',
+    summary:
+      'No colour at all. Bone type on pitch, square corners, no cards anywhere. Work rows invert to solid bone when you hover them.',
+    motion:
+      'Ridgelines climbing the full height of the screen, each one hiding the ones behind it.',
+  },
+  {
+    slug: 'e',
+    letter: 'E',
+    name: 'Instrument',
+    summary:
+      'Split hero with the shipped work in a readout panel beside the headline. Sodium amber, rationed to the things that are actually live.',
+    motion: 'A sweep turning through a dot matrix, lighting what it passes.',
+  },
+  {
+    slug: 'f',
+    letter: 'F',
+    name: 'Drift',
+    summary:
+      'Editorial and quiet. Full screen hero, wide measure, the brand green surfacing rarely.',
+    motion:
+      'A current running behind the entire page, not just the hero, so the background never goes dead as you scroll.',
+  },
+];
+
+const firstPass: Option[] = [
   {
     slug: 'a',
     letter: 'A',
     name: 'Contour',
-    summary:
-      'Black, left aligned, with topographic lines drifting behind the headline. The closest to the reference you sent.',
-    motion: 'Canvas contour field, always moving. Work listed as full width rows.',
+    summary: 'First pass. Kept for comparison.',
+    motion: 'Canvas contour field in the corner.',
   },
   {
     slug: 'b',
     letter: 'B',
     name: 'Aurora',
-    summary:
-      'Centred and calmer. Soft colour drifts behind the type, everything else sits on frosted glass panels.',
-    motion: 'Slow colour drift, no canvas. Floating pill nav.',
+    summary: 'First pass. Kept for comparison.',
+    motion: 'Soft colour drift, frosted panels.',
   },
   {
     slug: 'c',
     letter: 'C',
     name: 'Console',
-    summary:
-      'Split hero with the live products right there beside the headline. Hairline rules and monospaced labels.',
-    motion: 'A grid sliding upward with a sheen passing over it.',
+    summary: 'First pass. Kept for comparison.',
+    motion: 'Grid sliding upward.',
   },
 ];
 
+function OptionLink({ option, muted = false }: { option: Option; muted?: boolean }) {
+  return (
+    <Link
+      href={`/options/${option.slug}`}
+      className={`group block border-t border-ash-dim/40 py-6 transition-colors hover:bg-white/[0.04] ${
+        muted ? 'opacity-60' : ''
+      }`}
+    >
+      <div className="flex items-baseline gap-4">
+        <span className="font-code text-xs text-ash">{option.letter}</span>
+        <h2 className="text-xl font-semibold text-bone">{option.name}</h2>
+        <span className="ml-auto font-code text-xs text-ash transition-transform group-hover:translate-x-1">
+          Open &rarr;
+        </span>
+      </div>
+      <p className="mt-3 max-w-2xl text-ash">{option.summary}</p>
+      <p className="mt-1 max-w-2xl text-sm text-ash-dim">{option.motion}</p>
+    </Link>
+  );
+}
+
 export default function OptionsIndex() {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-20 md:py-28">
-      <p className="font-mono text-[11px] tracking-[0.18em] text-slate-500 uppercase">
+    <main className="mx-auto max-w-3xl px-6 py-20 lg:py-28">
+      <p className="font-code text-[11px] tracking-[0.2em] text-ash uppercase">
         Lancer · landing page
       </p>
-      <h1 className="mt-4 text-3xl font-bold text-white md:text-4xl">
-        Three dark directions
+      <h1 className="mt-5 text-3xl font-bold text-bone lg:text-4xl">
+        Second pass
       </h1>
-      <p className="mt-4 text-lg text-slate-400">
-        Same words, same sections, same links in all three. Only the design
-        changes, so you are comparing the look and not the copy. Every one of
-        them holds still for anyone whose device asks for less motion.
+      <p className="mt-4 text-lg text-ash">
+        Built from D and E, which came out of the two you liked. Gone from all
+        three: gradient text, frosted glass cards, and the indigo. Every
+        background now moves on its own rather than sitting still behind the
+        fold. Same words throughout, so you are only judging the look.
       </p>
 
-      <ul className="mt-12 space-y-4">
-        {options.map((option) => (
-          <li key={option.slug}>
-            <Link
-              href={`/options/${option.slug}`}
-              className="group block rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-colors hover:border-iris-400/50 hover:bg-white/[0.06]"
-            >
-              <div className="flex items-baseline gap-3">
-                <span className="font-mono text-sm text-iris-400">
-                  {option.letter}
-                </span>
-                <h2 className="text-xl font-semibold text-white">
-                  {option.name}
-                </h2>
-                <span className="ml-auto text-sm text-slate-500 transition-transform group-hover:translate-x-1">
-                  Open &rarr;
-                </span>
-              </div>
-              <p className="mt-3 text-slate-400">{option.summary}</p>
-              <p className="mt-2 text-sm text-slate-500">{option.motion}</p>
-            </Link>
-          </li>
+      <div className="mt-12">
+        {current.map((option) => (
+          <OptionLink key={option.slug} option={option} />
         ))}
-      </ul>
+        <div className="border-t border-ash-dim/40" />
+      </div>
 
-      <p className="mt-12 text-sm text-slate-500">
-        The current live site is still at{' '}
-        <Link href="/" className="text-slate-300 underline underline-offset-4 hover:text-white">
+      <h2 className="mt-16 font-code text-[11px] tracking-[0.2em] text-ash uppercase">
+        First pass
+      </h2>
+      <div className="mt-4">
+        {firstPass.map((option) => (
+          <OptionLink key={option.slug} option={option} muted />
+        ))}
+        <div className="border-t border-ash-dim/40" />
+      </div>
+
+      <p className="mt-14 text-sm text-ash-dim">
+        The live site is still at{' '}
+        <Link href="/" className="text-ash underline underline-offset-4 hover:text-bone">
           the home page
         </Link>
         . Nothing here is published.
