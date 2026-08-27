@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Archivo, Geist } from "next/font/google";
+import { site } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -7,33 +8,45 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
+  weight: ["400", "600", "800"],
 });
 
-const playfairDisplay = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-});
+const title = "Lancer · Software studio";
+const description =
+  "Lancer builds websites, products, and the internal tools behind them. Fixed scope, fixed price, and you own everything at the end.";
+
+export const viewport: Viewport = {
+  themeColor: "#08080a",
+  colorScheme: "dark",
+};
 
 export const metadata: Metadata = {
-  title: "Lancer — Your Skills, Your Income",
-  description:
-    "Connect directly with homeowners who need your expertise. Set your own rates. Work your own schedule. No middleman taking your earnings. Join the Lancer waitlist today.",
+  metadataBase: new URL(site.url),
+  title,
+  description,
   keywords: [
-    "home services",
-    "skilled workers",
-    "freelance",
-    "handyman",
-    "marketplace",
-    "no middleman",
+    "software studio",
+    "web development",
+    "website redesign",
+    "MVP development",
+    "internal tools",
+    "automation",
+    "dashboards",
   ],
   openGraph: {
-    title: "Lancer — Your Skills, Your Income",
-    description:
-      "Connect directly with homeowners. Set your own rates. Work on your schedule. No middleman.",
+    title,
+    description,
+    url: site.url,
+    siteName: site.name,
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
   },
 };
 
@@ -45,7 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} antialiased`}
+        className={`${geistSans.variable} ${archivo.variable} bg-pitch font-sans text-bone antialiased`}
       >
         {children}
       </body>

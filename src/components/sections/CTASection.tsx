@@ -1,31 +1,30 @@
-import { WaitlistForm } from '@/components/forms/WaitlistForm';
+import { Reveal } from '@/components/ui/Reveal';
+import { SilkField } from '@/components/ui/SilkField';
+import { bookingHref, bookingLabel, contactHref, site } from '@/lib/site';
+import { pillPrimary, pillQuiet } from '@/lib/styles';
+import { cta } from '@/lib/content';
 
 export function CTASection() {
   return (
-    <section className="py-20 md:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl bg-slate-900 px-8 py-16 text-center md:px-16 md:py-24">
-          {/* Subtle gradient decoration */}
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-600/20 via-transparent to-brand-600/10" />
+    <section className="relative overflow-hidden px-6 py-32 lg:px-8">
+      <SilkField className="absolute inset-0 h-full w-full opacity-60" />
+      <div className="absolute inset-0 bg-gradient-to-t from-pitch via-pitch/70 to-pitch/40" />
 
-          <div className="relative">
-            <h2 className="text-3xl font-bold tracking-tight text-white md:text-5xl">
-              Ready to work on your terms?
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-slate-300">
-              Join the waitlist and be among the first to access Lancer when we
-              launch. Early members get priority.
-            </p>
-            <div className="mt-10 flex justify-center">
-              <WaitlistForm
-                variant="hero"
-                theme="dark"
-                className="w-full max-w-lg"
-              />
-            </div>
-          </div>
+      <Reveal className="relative mx-auto max-w-5xl">
+        <h2 className="font-heavy max-w-2xl text-4xl font-extrabold tracking-[-0.03em] text-bone lg:text-6xl">
+          {cta.heading}
+        </h2>
+        <p className="mt-6 max-w-xl text-lg text-ash">{cta.body}</p>
+
+        <div className="mt-12 flex flex-wrap items-center gap-4">
+          <a href={bookingHref} className={pillPrimary}>
+            {bookingLabel}
+          </a>
+          <a href={contactHref} className={pillQuiet}>
+            {site.email}
+          </a>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

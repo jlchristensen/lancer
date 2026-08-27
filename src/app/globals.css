@@ -1,28 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
+  --background: #08080a;
+  --foreground: #ece5d8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  /* Body copy is Geist. Headlines are Archivo, heavy and tight. */
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-display: var(--font-playfair);
+  --font-heavy: var(--font-archivo);
 
-  /* Brand colors — primary green #2e8b57 */
-  --color-brand-50: #f0f9f4;
-  --color-brand-100: #d1f0df;
-  --color-brand-200: #a3e0bf;
-  --color-brand-300: #6bc99a;
-  --color-brand-500: #38a169;
-  --color-brand-600: #2e8b57;
-  --color-brand-700: #246d45;
-
-  /* Accent — warm off-white #fefdfb */
-  --color-accent: #fefdfb;
+  /* The whole palette. Bone carries the type, ash the supporting copy,
+     pitch the ground. There is no accent colour on purpose. */
+  --color-pitch: #08080a;
+  --color-pitch-2: #101013;
+  --color-bone: #ece5d8;
+  --color-ash: #8b857c;
+  --color-ash-dim: #5a554e;
 }
 
 html {
@@ -32,4 +29,18 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* Scroll reveals arrive already in place for anyone who asked for less
+   motion. The canvas backdrop draws a single still frame, in SilkField. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }
