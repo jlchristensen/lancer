@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
+import { site } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,23 +18,34 @@ const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
 });
 
+const title = "Lancer · Software studio";
+const description =
+  "Lancer builds websites, products, and the internal tools behind them. Fixed scope, fixed price, and you own everything at the end.";
+
 export const metadata: Metadata = {
-  title: "Lancer — Your Skills, Your Income",
-  description:
-    "Connect directly with homeowners who need your expertise. Set your own rates. Work your own schedule. No middleman taking your earnings. Join the Lancer waitlist today.",
+  metadataBase: new URL(site.url),
+  title,
+  description,
   keywords: [
-    "home services",
-    "skilled workers",
-    "freelance",
-    "handyman",
-    "marketplace",
-    "no middleman",
+    "software studio",
+    "web development",
+    "website redesign",
+    "MVP development",
+    "internal tools",
+    "automation",
+    "dashboards",
   ],
   openGraph: {
-    title: "Lancer — Your Skills, Your Income",
-    description:
-      "Connect directly with homeowners. Set your own rates. Work on your schedule. No middleman.",
+    title,
+    description,
+    url: site.url,
+    siteName: site.name,
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
   },
 };
 

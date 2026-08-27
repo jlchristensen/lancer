@@ -2,11 +2,13 @@
 
 ## What Is This Project?
 
-Lancer is an online marketplace for home services — connecting skilled workers ("Lancers") directly with homeowners. No middleman. Set your own rates, work your own schedule, keep more of your earnings. Think TaskRabbit, but the workers keep more and homeowners get better prices.
+This is the website for **Lancer**, the business entity. Wordmark: **Lancer Optimization**.
 
-**Status:** Landing page live, waitlist capture functional (JSON file storage), deployed via AWS Amplify.
+Lancer is a software studio. It owns the products built in the garage (Chip, Sage, Stitch, tabtab, The Social Project) and takes on client work in three areas: websites new and rebuilt, product builds from 0 to 1, and automation and dashboards.
 
-**Live URL:** Deployed on AWS Amplify (auto-deploys from `main` branch).
+**The old home services marketplace is scrapped.** This repo used to hold it. Its code is gone from `main` as of the studio rebuild and lives on in git history only. Do not restore it, cite it, or build on it.
+
+**Live URL:** https://welcometolancer.com (AWS Amplify, auto-deploys from `main`)
 
 **Repo:** https://github.com/lancer-source/lancer
 
@@ -18,11 +20,12 @@ Lancer is an online marketplace for home services — connecting skilled workers
 | Language | TypeScript | 5.x |
 | UI | React | 19.2.3 |
 | Styling | Tailwind CSS | v4 |
-| Fonts | Geist Sans + Geist Mono | via next/font |
+| Fonts | Geist Sans, Geist Mono, Playfair Display | via next/font |
 | Hosting | AWS Amplify | Auto-deploy from main |
-| Package Manager | npm | — |
 
-**Important:** This project uses Tailwind CSS v4, which uses `@import "tailwindcss"` in CSS instead of a `tailwind.config.js` file. Theme customization is done via CSS variables in `src/app/globals.css`.
+**Important:** Tailwind CSS v4 uses `@import "tailwindcss"` in CSS instead of a `tailwind.config.js`. Theme customization happens in CSS variables in `src/app/globals.css`.
+
+The Supabase packages are still in `package.json` from the marketplace build. Nothing imports them. Leave them or strip them, but do not wire them back up without a reason.
 
 ## Project Structure
 
@@ -31,81 +34,72 @@ projects/lancer/
 ├── CLAUDE.md              ← You are here
 ├── .cursorrules           ← Cursor IDE rules
 ├── amplify.yml            ← AWS Amplify build config
-├── package.json           ← Dependencies and scripts
 │
-├── docs/
-│   ├── agents/            ← Agent prompts for Lancer development
-│   ├── workflows/         ← Workflow definitions (content vs feature)
-│   ├── roadmap/           ← Development roadmap and priorities
-│   └── plans/             ← Implementation plans for features
-│
-├── public/                ← Static assets (SVGs, images)
+├── docs/                  ← Agent prompts, workflows, roadmap, old plans
+├── public/                ← Static assets
 │
 └── src/
     ├── app/
-    │   ├── api/
-    │   │   └── waitlist/
-    │   │       └── route.ts       ← POST/GET waitlist endpoint
-    │   ├── globals.css            ← Tailwind imports + CSS variables
-    │   ├── layout.tsx             ← Root layout (metadata, fonts)
-    │   └── page.tsx               ← Home page (/)
+    │   ├── globals.css            ← Tailwind import + brand CSS variables
+    │   ├── layout.tsx             ← Root layout, metadata, fonts
+    │   └── page.tsx               ← Home page, composes the sections
     │
-    └── components/
-        ├── forms/
-        │   └── WaitlistForm.tsx   ← Email capture form (hero + section variants)
-        │
-        └── sections/
-            ├── Header.tsx         ← Sticky nav with scroll effect
-            ├── HeroSection.tsx    ← Hero with headline + waitlist form
-            ├── FeaturesSection.tsx ← 3 feature cards
-            ├── HowItWorksSection.tsx ← 3-step process
-            ├── MarketplaceSection.tsx ← Worker + Homeowner benefits
-            ├── FAQSection.tsx     ← Accordion FAQ
-            ├── CTASection.tsx     ← Final CTA with waitlist form
-            └── Footer.tsx         ← Simple footer
+    ├── lib/
+    │   └── site.ts                ← Contact details, links, product list
+    │
+    └── components/sections/
+        ├── Header.tsx             ← Fixed nav, goes solid on scroll
+        ├── HeroSection.tsx        ← Headline and the two CTAs
+        ├── WorkSection.tsx        ← Built by Lancer, the live products
+        ├── ServicesSection.tsx    ← The three kinds of work
+        ├── HowItWorksSection.tsx  ← Call, Scope, Build and hand off
+        ├── CTASection.tsx         ← Repeat CTA
+        └── Footer.tsx             ← Wordmark, email, copyright
 ```
 
 ## Current State of the Landing Page
 
-The page flows top-to-bottom as a single landing page:
+One page, top to bottom:
 
-1. **Header** — Fixed nav with "Lancer" logo and "Join Waitlist" button
-2. **Hero** — "Your Skills. Your Income." headline, subtext, waitlist email form
-3. **Features** — 3 cards: Keep Earnings, Work on Terms, Build Relationships
-4. **How It Works** — 3 steps: Create Profile → Connect → Get Paid
-5. **Marketplace** — Two-column: Worker benefits vs Homeowner benefits
-6. **FAQ** — 6 accordion questions about Lancer
-7. **CTA** — Dark section with "Ready to work on your terms?" + waitlist form
-8. **Footer** — Logo + copyright
+1. **Header** - Fixed nav, "Lancer" wordmark, Work and Services links, primary CTA
+2. **Hero** - "We build the software your business is missing." plus two CTAs
+3. **Built by Lancer** - The live products, each linking out. This is the social proof, in place of testimonials we do not have
+4. **What we do** - The three services
+5. **How it works** - Call, Scope, Build and hand off
+6. **CTA** - "Tell us what's slow."
+7. **Footer** - Wordmark, email, copyright
 
-**Design:** Emerald green primary color, slate grays, clean whitespace, rounded cards, mobile-first responsive.
+### Editing the site
 
-**Waitlist:** Currently stores emails to a local JSON file (`data/waitlist.json`). This needs to be upgraded to a proper backend solution for production.
+Almost everything an agent gets asked to change lives in **`src/lib/site.ts`**: the email address, the products on show, and the booking link. Change it there, not in the components.
+
+**The Calendly link is not set yet.** `site.calendlyUrl` is an empty string. While it is empty, every "Book a call" button opens an email instead and its label reads "Start a project", so no button is ever a dead end. Paste the Calendly URL into that one field and the whole site switches over.
 
 ## Design System
 
+Follow `docs/standards/ui-ux-standards.md` in the garage. Simple, minimal, generous whitespace, one primary color.
+
 ### Colors (Tailwind classes)
-- **Primary:** `emerald-600` (buttons, accents), `emerald-500` (hover states), `emerald-50` (light backgrounds)
-- **Text:** `slate-900` (headings), `slate-600` (body), `slate-500` (subtle)
-- **Background:** `white`, `slate-50` (alternating sections)
-- **Dark surfaces:** `slate-900` (CTA section)
+- **Primary:** `brand-600` (#2e8b57) for buttons and accents, `brand-700` for hover, `brand-50` for tinted backgrounds
+- **Text:** `slate-900` headings, `slate-600` body, `slate-500` subtle
+- **Background:** `white`, with `slate-50` on alternating sections
+
+Brand tokens are defined in `src/app/globals.css` under `@theme inline`. Three colors on a screen is the ceiling.
 
 ### Typography
-- **Font:** Geist Sans (body), Geist Mono (code/monospace)
-- **Headings:** `font-bold tracking-tight`
-- **Body:** `text-base leading-relaxed` or `text-lg`
+- **Font:** Geist Sans for everything, Playfair Display (`font-display`) for the wordmark only
+- **Page title:** `text-4xl font-bold tracking-tight md:text-6xl`
+- **Section heading:** `text-3xl font-bold md:text-4xl`
+- **Body:** `text-lg text-slate-600`
 
-### Components Patterns
-- **Cards:** `rounded-2xl border border-slate-200 bg-white p-8`
-- **Buttons:** `rounded-full bg-emerald-600 px-8 py-3 font-medium text-white`
-- **Badges:** `rounded-full bg-emerald-50 px-4 py-1.5 text-sm font-medium text-emerald-700`
-- **Sections:** Alternating white and `bg-slate-50`, with `py-20 md:py-32` padding
-- **Max widths:** `max-w-7xl` (container), `max-w-3xl` (text content), `max-w-2xl` (section headers)
+### Component patterns
+- **Buttons:** `rounded-full bg-brand-600 px-8 py-3.5 font-semibold text-white`, secondary is `border border-slate-300`
+- **Cards:** `rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md`
+- **Sections:** `px-6 py-16 md:py-24 lg:px-8`, container `max-w-6xl`
+- **Buttons stack full width on mobile** and sit side by side from `sm:` up
 
-### Interaction Patterns
-- **Hover states:** Cards lift with `hover:shadow-lg hover:border-emerald-200`
-- **Header:** Transparent → white/blur on scroll
-- **FAQ:** Accordion with smooth open/close animation
+### Copy rules
+No em-dashes in anything a visitor reads. Use the middot (·) for label separators. Avoid the AI-tell vocabulary listed in the garage CLAUDE.md. Read it out loud before shipping it.
 
 ## Development Commands
 
@@ -197,7 +191,7 @@ All agents manage git automatically. Jack should not need to think about git.
 
 ### Commit Convention
 ```bash
-feat: add new waitlist confirmation page
+feat: add a case study page
 fix: correct mobile layout on features section
 style: update hero section spacing and colors
 content: update FAQ answers and headline copy
@@ -218,6 +212,6 @@ refactor: extract email validation to utility
 - Design matters — this is for idea validation, it needs to look professional
 - Mobile-first — most visitors will come from ads on phones
 - Ship fast — get it working, then polish
-- The waitlist form already exists but needs a proper backend (not JSON files)
-- Never commit `.env.local` or the `data/` directory
+- This site is a shop window, not an app. There is no auth, no database and no form backend. Keep it that way unless Jack asks for one
+- Never commit `.env.local`
 - Always run `npm run build` before saying something is done

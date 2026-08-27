@@ -1,29 +1,30 @@
-import { WaitlistForm } from '@/components/forms/WaitlistForm';
+import { bookingHref, bookingLabel, contactHref, site } from '@/lib/site';
 
 export function CTASection() {
   return (
-    <section className="py-20 md:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl bg-slate-900 px-8 py-16 text-center md:px-16 md:py-24">
-          {/* Subtle gradient decoration */}
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-600/20 via-transparent to-brand-600/10" />
+    <section className="px-6 py-16 md:py-24 lg:px-8">
+      <div className="mx-auto max-w-3xl text-center">
+        <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">
+          Tell us what&apos;s slow.
+        </h2>
+        <p className="mt-4 text-lg text-slate-600">
+          If it&apos;s a fit, you get a written scope and a price. If it&apos;s not,
+          you get an honest answer and a pointer somewhere better.
+        </p>
 
-          <div className="relative">
-            <h2 className="text-3xl font-bold tracking-tight text-white md:text-5xl">
-              Ready to work on your terms?
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-slate-300">
-              Join the waitlist and be among the first to access Lancer when we
-              launch. Early members get priority.
-            </p>
-            <div className="mt-10 flex justify-center">
-              <WaitlistForm
-                variant="hero"
-                theme="dark"
-                className="w-full max-w-lg"
-              />
-            </div>
-          </div>
+        <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <a
+            href={bookingHref}
+            className="w-full rounded-full bg-brand-600 px-8 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-700 sm:w-auto"
+          >
+            {bookingLabel}
+          </a>
+          <a
+            href={contactHref}
+            className="w-full rounded-full border border-slate-300 px-8 py-3.5 text-base font-semibold text-slate-700 transition-colors hover:bg-slate-50 sm:w-auto"
+          >
+            {site.email}
+          </a>
         </div>
       </div>
     </section>
