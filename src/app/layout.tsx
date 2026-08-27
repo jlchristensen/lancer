@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Archivo, Geist } from "next/font/google";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -8,19 +8,20 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
-});
-
-const playfairDisplay = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
+  weight: ["400", "600", "800"],
 });
 
 const title = "Lancer · Software studio";
 const description =
   "Lancer builds websites, products, and the internal tools behind them. Fixed scope, fixed price, and you own everything at the end.";
+
+export const viewport: Viewport = {
+  themeColor: "#08080a",
+  colorScheme: "dark",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -57,7 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} antialiased`}
+        className={`${geistSans.variable} ${archivo.variable} bg-pitch font-sans text-bone antialiased`}
       >
         {children}
       </body>

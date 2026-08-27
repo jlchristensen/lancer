@@ -20,7 +20,7 @@ Lancer is a software studio. It owns the products built in the garage (Chip, Sag
 | Language | TypeScript | 5.x |
 | UI | React | 19.2.3 |
 | Styling | Tailwind CSS | v4 |
-| Fonts | Geist Sans, Geist Mono, Playfair Display | via next/font |
+| Fonts | Geist Sans, Archivo | via next/font |
 | Hosting | AWS Amplify | Auto-deploy from main |
 
 **Important:** Tailwind CSS v4 uses `@import "tailwindcss"` in CSS instead of a `tailwind.config.js`. Theme customization happens in CSS variables in `src/app/globals.css`.
@@ -40,66 +40,102 @@ projects/lancer/
 │
 └── src/
     ├── app/
-    │   ├── globals.css            ← Tailwind import + brand CSS variables
-    │   ├── layout.tsx             ← Root layout, metadata, fonts
-    │   └── page.tsx               ← Home page, composes the sections
+    │   ├── globals.css            ← Tailwind import, palette, reduced motion
+    │   ├── layout.tsx             ← Fonts, metadata, dark theme colour
+    │   └── page.tsx               ← Composes the sections in order
     │
     ├── lib/
-    │   └── site.ts                ← Contact details, links, product list
+    │   ├── site.ts                ← Contact details, links, product list
+    │   ├── content.ts             ← Every word on the page
+    │   └── styles.ts              ← The one button shape
     │
-    └── components/sections/
-        ├── Header.tsx             ← Fixed nav, goes solid on scroll
-        ├── HeroSection.tsx        ← Headline and the two CTAs
-        ├── WorkSection.tsx        ← Built by Lancer, the live products
-        ├── ServicesSection.tsx    ← The three kinds of work
-        ├── HowItWorksSection.tsx  ← Call, Scope, Build and hand off
-        ├── CTASection.tsx         ← Repeat CTA
-        └── Footer.tsx             ← Wordmark, email, copyright
+    ├── components/sections/
+    │   ├── Header.tsx             ← Floating pill nav
+    │   ├── HeroSection.tsx        ← Full screen, silk drifting behind
+    │   ├── WorkSection.tsx        ← Built by Lancer, three staggered tiles
+    │   ├── ServicesSection.tsx    ← Three statements
+    │   ├── ProcessSection.tsx     ← How it works, as a paragraph
+    │   ├── CTASection.tsx         ← Closing, silk again
+    │   └── Footer.tsx
+    │
+    └── components/ui/
+        ├── SilkField.tsx          ← The drifting line background
+        ├── useCanvasScene.ts      ← Canvas loop, retina, resize, still frame
+        └── Reveal.tsx             ← Scroll into view fade
 ```
 
 ## Current State of the Landing Page
 
-One page, top to bottom:
+One page, top to bottom: hero, Built by Lancer, What we do, How it works,
+closing CTA, footer.
 
-1. **Header** - Fixed nav, "Lancer" wordmark, Work and Services links, primary CTA
-2. **Hero** - "We build the software your business is missing." plus two CTAs
-3. **Built by Lancer** - The live products, each linking out. This is the social proof, in place of testimonials we do not have
-4. **What we do** - The three services
-5. **How it works** - Call, Scope, Build and hand off
-6. **CTA** - "Tell us what's slow."
-7. **Footer** - Wordmark, email, copyright
+The live products stand in as social proof, since there are no testimonials
+or client logos yet. When real ones exist, they go above the fold.
 
 ### Editing the site
 
-Almost everything an agent gets asked to change lives in **`src/lib/site.ts`**: the email address, the products on show, and the booking link. Change it there, not in the components.
+Two files cover almost every request:
 
-**The Calendly link is not set yet.** `site.calendlyUrl` is an empty string. While it is empty, every "Book a call" button opens an email instead and its label reads "Start a project", so no button is ever a dead end. Paste the Calendly URL into that one field and the whole site switches over.
+- **`src/lib/site.ts`** for the email address, the booking link, and which
+  products appear
+- **`src/lib/content.ts`** for every word on the page
+
+**The Calendly link is not set yet.** `site.calendlyUrl` is an empty string.
+While it is empty, every "Book a call" button opens an email instead and its
+label reads "Start a project", so no button is ever a dead end. Paste the
+Calendly URL into that one field and the whole site switches over.
 
 ## Design System
 
-Follow `docs/standards/ui-ux-standards.md` in the garage. Simple, minimal, generous whitespace, one primary color.
+The design is called **Silk**. It was picked out of eight options in August
+2026. Two rules came out of that process and they are the ones to hold to.
 
-### Colors (Tailwind classes)
-- **Primary:** `brand-600` (#2e8b57) for buttons and accents, `brand-700` for hover, `brand-50` for tinted backgrounds
-- **Text:** `slate-900` headings, `slate-600` body, `slate-500` subtle
-- **Background:** `white`, with `slate-50` on alternating sections
+**No numbered sets.** No 01 / 02 / 03, no step badges, no bulleted feature
+lists. The services are three statements with room around them, and the
+process is a paragraph. Numbering is only allowed if the content is genuinely
+a sequence the reader has to follow in order, and even then, question it.
 
-Brand tokens are defined in `src/app/globals.css` under `@theme inline`. Three colors on a screen is the ceiling.
+**No AI house style.** No gradient text. No frosted glass cards. No indigo or
+violet. If a layout could sit unchanged on any other startup landing page,
+it is wrong.
+
+### Colour
+
+There is no accent colour. The whole palette is four values, in `globals.css`:
+
+| Token | Value | Used for |
+|-------|-------|----------|
+| `pitch` | `#08080a` | The ground |
+| `pitch-2` | `#101013` | Tiles and panels |
+| `bone` | `#ece5d8` | Headlines, primary buttons |
+| `ash` | `#8b857c` | Body copy |
+| `ash-dim` | `#5a554e` | Footer, hairlines |
+
+Buttons are bone on pitch, and invert to white on hover. Quiet buttons are a
+hairline border that brightens.
 
 ### Typography
-- **Font:** Geist Sans for everything, Playfair Display (`font-display`) for the wordmark only
-- **Page title:** `text-4xl font-bold tracking-tight md:text-6xl`
-- **Section heading:** `text-3xl font-bold md:text-4xl`
-- **Body:** `text-lg text-slate-600`
 
-### Component patterns
-- **Buttons:** `rounded-full bg-brand-600 px-8 py-3.5 font-semibold text-white`, secondary is `border border-slate-300`
-- **Cards:** `rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md`
-- **Sections:** `px-6 py-16 md:py-24 lg:px-8`, container `max-w-6xl`
-- **Buttons stack full width on mobile** and sit side by side from `sm:` up
+- **Archivo** (`font-heavy`, weight 800, tight tracking) for every headline
+- **Geist** (`font-sans`) for body copy
+- No third face, no monospace
+
+### Shape and motion
+
+Everything is rounded. `rounded-full` on buttons and nav, `rounded-3xl` on
+tiles. Transitions run 300 to 500ms, never faster: the whole point of this
+direction is that it feels unhurried.
+
+`SilkField` draws long lines drifting across the hero and the closing
+section. It is decorative, hidden from screen readers, and draws a single
+still frame when the visitor has asked for reduced motion. `Reveal` fades
+sections in as they scroll into view and is disabled the same way.
 
 ### Copy rules
-No em-dashes in anything a visitor reads. Use the middot (·) for label separators. Avoid the AI-tell vocabulary listed in the garage CLAUDE.md. Read it out loud before shipping it.
+
+No em-dashes in anything a visitor reads. Use the middot (·) for label
+separators. Avoid the AI-tell vocabulary listed in the garage CLAUDE.md.
+Read it out loud before shipping it.
 
 ## Development Commands
 
