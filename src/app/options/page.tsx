@@ -12,53 +12,66 @@ type Option = {
 
 const current: Option[] = [
   {
+    slug: 'g',
+    letter: 'G',
+    name: 'Silk',
+    summary:
+      'Rounded buttons back, everything softened. Nothing on the page is numbered: the services are three plain statements, and the process is a paragraph rather than a row of steps.',
+    motion:
+      'Long lines drifting across the full screen like silk in slow air. They pass through each other rather than blocking each other out.',
+  },
+  {
+    slug: 'h',
+    letter: 'H',
+    name: 'Orbit',
+    summary:
+      'The calm one. Same rules as G, but the work sits on one soft shelf instead of separate tiles, and the services heading holds its place while they scroll past.',
+    motion:
+      'Thin rings turning at their own speeds, with a point riding two of them. Slow enough to read as still until you look twice.',
+  },
+];
+
+const earlier: Option[] = [
+  {
     slug: 'd',
     letter: 'D',
     name: 'Ridge',
-    summary:
-      'No colour at all. Bone type on pitch, square corners, no cards anywhere. Work rows invert to solid bone when you hover them.',
-    motion:
-      'Ridgelines climbing the full height of the screen, each one hiding the ones behind it.',
+    summary: 'Second pass. Too hard edged, and still built on numbered sets.',
+    motion: 'Ridgelines climbing the screen.',
   },
   {
     slug: 'e',
     letter: 'E',
     name: 'Instrument',
-    summary:
-      'Split hero with the shipped work in a readout panel beside the headline. Sodium amber, rationed to the things that are actually live.',
-    motion: 'A sweep turning through a dot matrix, lighting what it passes.',
+    summary: 'Second pass. Same problem, plus a lot of small labels.',
+    motion: 'A sweep turning through a dot matrix.',
   },
   {
     slug: 'f',
     letter: 'F',
     name: 'Drift',
-    summary:
-      'Editorial and quiet. Full screen hero, wide measure, the brand green surfacing rarely.',
-    motion:
-      'A current running behind the entire page, not just the hero, so the background never goes dead as you scroll.',
+    summary: 'Second pass. Kept for the background, which runs the whole page.',
+    motion: 'A current behind every section.',
   },
-];
-
-const firstPass: Option[] = [
   {
     slug: 'a',
     letter: 'A',
     name: 'Contour',
-    summary: 'First pass. Kept for comparison.',
+    summary: 'First pass.',
     motion: 'Canvas contour field in the corner.',
   },
   {
     slug: 'b',
     letter: 'B',
     name: 'Aurora',
-    summary: 'First pass. Kept for comparison.',
+    summary: 'First pass.',
     motion: 'Soft colour drift, frosted panels.',
   },
   {
     slug: 'c',
     letter: 'C',
     name: 'Console',
-    summary: 'First pass. Kept for comparison.',
+    summary: 'First pass.',
     motion: 'Grid sliding upward.',
   },
 ];
@@ -91,13 +104,13 @@ export default function OptionsIndex() {
         Lancer · landing page
       </p>
       <h1 className="mt-5 text-3xl font-bold text-bone lg:text-4xl">
-        Second pass
+        Third pass
       </h1>
       <p className="mt-4 text-lg text-ash">
-        Built from D and E, which came out of the two you liked. Gone from all
-        three: gradient text, frosted glass cards, and the indigo. Every
-        background now moves on its own rather than sitting still behind the
-        fold. Same words throughout, so you are only judging the look.
+        Rounded buttons and the softer feel of A are back, and the numbering
+        is gone. No 01 / 02 / 03, no step badges, no bulleted lists anywhere:
+        the services are three statements and the process is a paragraph.
+        Same words in both, so you are only judging the look.
       </p>
 
       <div className="mt-12">
@@ -108,10 +121,10 @@ export default function OptionsIndex() {
       </div>
 
       <h2 className="mt-16 font-code text-[11px] tracking-[0.2em] text-ash uppercase">
-        First pass
+        Earlier passes
       </h2>
       <div className="mt-4">
-        {firstPass.map((option) => (
+        {earlier.map((option) => (
           <OptionLink key={option.slug} option={option} muted />
         ))}
         <div className="border-t border-ash-dim/40" />

@@ -69,3 +69,28 @@ export const cta = {
   heading: "Tell us what's slow.",
   body: "If it's a fit, you get a written scope and a price. If it's not, you get an honest answer and a pointer somewhere better.",
 };
+
+/**
+ * The process, written as prose instead of a numbered list.
+ *
+ * Three steps in a row of cards is the single most generic thing a landing
+ * page can do. The order still matters, so the sentences carry it: the lead
+ * clause sets the beat, the rest fills it in.
+ */
+export const processProse = {
+  heading: 'How it works',
+  sentences: [
+    {
+      lead: 'It starts with a call.',
+      rest: "Twenty minutes on what's slow, what's manual, and what it costs you today.",
+    },
+    {
+      lead: 'Then a written scope.',
+      rest: 'A fixed price and a date on it, never an hourly meter.',
+    },
+    {
+      lead: 'Then it gets built.',
+      rest: 'Working software in front of you every week, until the day you own the code, the accounts and the documentation.',
+    },
+  ],
+};
