@@ -13,7 +13,10 @@ export function ServicesSection() {
     <section id="services" className="px-6 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <h2 className="font-heavy max-w-lg text-3xl leading-tight font-normal tracking-[-0.02em] text-paper lg:text-[2.6rem]">
+          <p className="font-heavy text-[11px] font-semibold tracking-[0.2em] text-accent-soft uppercase">
+            {sections.servicesEyebrow}
+          </p>
+          <h2 className="mt-3 font-heavy max-w-lg text-3xl leading-tight font-normal tracking-[-0.02em] text-paper lg:text-[2.6rem]">
             {sections.servicesHeading}
           </h2>
           <p className="mt-4 max-w-xl text-mute">{sections.servicesSubhead}</p>

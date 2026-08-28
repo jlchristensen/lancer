@@ -7,24 +7,28 @@ import { hero } from '@/lib/content';
 
 export function HeroSection() {
   return (
-    <section className="glow-hero relative overflow-hidden px-6 pt-32 pb-20 lg:px-8 lg:pt-40">
+    <section className="glow-hero relative overflow-hidden px-6 pt-32 pb-24 lg:px-8 lg:pt-40">
       <div className="grid-veil absolute inset-0" />
 
       <div className="relative z-10 mx-auto max-w-3xl text-center">
         <Reveal>
           <a
             href="#work"
-            className="inline-flex items-center gap-2 rounded-full border border-line bg-ink-2/80 px-4 py-1.5 text-xs text-mute transition-colors hover:border-accent/50 hover:text-paper"
+            className="inline-flex items-center gap-2 rounded-full border border-line bg-ink-2/80 px-4 py-1.5 text-[13px] text-mute transition-colors hover:border-accent/50 hover:text-paper"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-accent-soft" />
             {products.length} products live and shipping
-            <span aria-hidden="true">&rarr;</span>
+            <span aria-hidden="true" className="text-mute-dim">
+              &rarr;
+            </span>
           </a>
         </Reveal>
 
         <Reveal delay={120}>
-          <h1 className="font-heavy mt-8 text-[2.5rem] leading-[1.06] font-normal tracking-[-0.02em] text-paper sm:text-6xl">
-            {hero.headline}
+          <h1 className="font-heavy mt-8 text-[2.5rem] leading-[1.08] font-normal tracking-[-0.02em] text-paper sm:text-6xl">
+            {hero.headlineA}
+            <br />
+            <span className="text-mute">{hero.headlineB}</span>
           </h1>
         </Reveal>
 
@@ -49,21 +53,20 @@ export function HeroSection() {
         </Reveal>
       </div>
 
-      {/* The work itself, as the proof */}
-      <Reveal delay={480} className="relative z-10 mt-16 lg:mt-20">
-        <div className="relative mx-auto max-w-5xl">
+      <Reveal delay={480} className="relative z-10 mt-20 lg:mt-24">
+        <div className="relative mx-auto max-w-4xl">
           <DeviceShowcase />
 
           <FloatingCard
             label="Live"
             value="playwithchip.com"
             accent
-            className="absolute -top-4 right-2 hidden lg:block"
+            className="absolute -top-6 right-0 hidden lg:block"
           />
           <FloatingCard
             label="Built with"
             value="Next.js · Supabase · AWS"
-            className="absolute bottom-8 -left-6 hidden lg:block"
+            className="absolute bottom-10 -left-10 hidden lg:block"
           />
         </div>
       </Reveal>

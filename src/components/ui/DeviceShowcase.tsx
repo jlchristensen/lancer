@@ -1,78 +1,46 @@
-import Image from 'next/image';
+import { BrowserFrame, PhoneFrame } from './DeviceFrames';
 
 /**
- * The hero centrepiece: Chip in a browser window, with Sage and The Social
- * Project in phone frames overlapping it.
- *
- * The frames are drawn in CSS rather than baked into the images, so the
- * screenshots can be replaced by dropping new files into public/products
- * without redoing any artwork.
+ * The hero centrepiece: Chip in a browser window, Sage and The Social
+ * Project in phone frames tucked slightly behind its corners, all seated on
+ * a blue-violet bloom so the group reads as one object on a lit stage.
  */
-
-function Phone({
-  src,
-  alt,
-  className = '',
-}: {
-  src: string;
-  alt: string;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`w-[122px] shrink-0 rounded-[1.75rem] border border-line bg-ink-3 p-1.5 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.85)] sm:w-[152px] lg:w-[178px] ${className}`}
-    >
-      <div className="relative overflow-hidden rounded-[1.4rem]">
-        <Image
-          src={src}
-          alt={alt}
-          width={430}
-          height={932}
-          className="h-auto w-full"
-        />
-      </div>
-    </div>
-  );
-}
-
 export function DeviceShowcase() {
   return (
-    <div className="relative mx-auto w-full max-w-5xl">
-      <div className="flex items-end justify-center gap-3 sm:gap-5 lg:gap-8">
-        <Phone
-          src="/products/sage.jpg"
-          alt="Sage, an adaptive learning app, running on a phone"
-          className="relative z-20 mb-6 rotate-[-4deg] lg:mb-10"
+    <div className="relative mx-auto max-w-4xl">
+      {/* stage bloom */}
+      <div
+        aria-hidden="true"
+        className="absolute -inset-x-24 top-1/4 -bottom-24 -z-10 bg-[radial-gradient(55%_65%_at_50%_80%,rgba(47,125,255,0.30),rgba(122,86,255,0.14)_50%,transparent_78%)] blur-2xl"
+      />
+
+      <div className="flex items-end justify-center">
+        <PhoneFrame
+          src="/products/sage.png"
+          alt="Sage, an adaptive learning app, on a phone"
+          className="z-20 -mr-6 mb-3 w-[126px] rotate-[-5deg] sm:-mr-10 sm:w-[168px] lg:-mr-14 lg:w-[192px]"
         />
 
-        {/* Chip, in a browser window */}
-        <div className="relative z-10 hidden min-w-0 flex-1 rounded-xl border border-line bg-ink-3 shadow-[0_40px_80px_-24px_rgba(0,0,0,0.9)] sm:block">
-          <div className="flex items-center gap-1.5 border-b border-line px-3 py-2.5">
-            <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
-            <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
-            <span className="h-2 w-2 rounded-full bg-[#28c840]" />
-            <span className="mx-auto rounded bg-ink-2 px-6 py-0.5 text-[10px] text-mute-dim">
-              playwithchip.com
-            </span>
-          </div>
-          <div className="overflow-hidden rounded-b-xl">
-            <Image
-              src="/products/chip.jpg"
-              alt="Chip, a poker learning app, running in a browser"
-              width={1440}
-              height={787}
-              className="h-auto w-full"
-              priority
-            />
-          </div>
-        </div>
+        <BrowserFrame
+          src="/products/chip.png"
+          alt="Chip, a poker learning app, in a browser window"
+          url="playwithchip.com"
+          priority
+          className="z-10 hidden min-w-0 max-w-2xl flex-1 sm:block"
+        />
 
-        <Phone
-          src="/products/tsp.jpg"
-          alt="The Social Project, a nightly question app, running on a phone"
-          className="relative z-20 mb-6 rotate-[4deg] lg:mb-10"
+        <PhoneFrame
+          src="/products/tsp.png"
+          alt="The Social Project, a nightly question app, on a phone"
+          className="z-20 -ml-6 mb-3 w-[126px] rotate-[5deg] sm:-ml-10 sm:w-[168px] lg:-ml-14 lg:w-[192px]"
         />
       </div>
+
+      {/* contact shadow, so the group sits rather than floats */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-16 -bottom-8 -z-10 h-16 rounded-[100%] bg-black/70 blur-2xl"
+      />
     </div>
   );
 }

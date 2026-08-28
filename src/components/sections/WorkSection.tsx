@@ -4,9 +4,9 @@ import { products } from '@/lib/site';
 import { sections } from '@/lib/content';
 
 const shots: Record<string, string> = {
-  Chip: '/products/chip.jpg',
-  Sage: '/products/sage.jpg',
-  'The Social Project': '/products/tsp.jpg',
+  Chip: '/products/chip.png',
+  Sage: '/products/sage.png',
+  'The Social Project': '/products/tsp.png',
 };
 
 export function WorkSection() {
@@ -14,7 +14,10 @@ export function WorkSection() {
     <section id="work" className="border-y border-line/60 bg-ink-2/40 px-6 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-6xl">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <h2 className="font-heavy text-3xl leading-tight font-normal tracking-[-0.02em] text-paper lg:text-[2.6rem]">
+          <p className="font-heavy text-[11px] font-semibold tracking-[0.2em] text-accent-soft uppercase">
+            {sections.workEyebrow}
+          </p>
+          <h2 className="mt-3 font-heavy text-3xl leading-tight font-normal tracking-[-0.02em] text-paper lg:text-[2.6rem]">
             {sections.workHeading}
           </h2>
           <p className="mt-4 text-mute">{sections.workSubhead}</p>
@@ -32,7 +35,7 @@ export function WorkSection() {
                 >
                   <div className="relative h-44 overflow-hidden border-b border-line bg-ink-3">
                     <Image
-                      src={shots[product.name] ?? '/products/chip.jpg'}
+                      src={shots[product.name] ?? '/products/chip.png'}
                       alt={`${product.name} screenshot`}
                       width={1440}
                       height={787}

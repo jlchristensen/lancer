@@ -8,7 +8,9 @@
 
 export const hero = {
   eyebrow: 'Lancer Optimization',
-  headline: 'We build the software your business is missing.',
+  /** Rendered as two tones: A in white, B in grey, like the reference. */
+  headlineA: 'We build the software',
+  headlineB: 'your business is missing.',
   subhead:
     'Websites, products, and the internal tools behind them. Fixed scope, fixed price, and you own everything at the end.',
 };
@@ -32,11 +34,14 @@ export const services = [
 ];
 
 export const sections = {
+  workEyebrow: 'Live right now',
   workHeading: 'Built by Lancer',
   workSubhead: 'These are ours. Same hands, same standards as the client work.',
-  servicesHeading: 'What we do',
+  servicesEyebrow: 'What we do',
+  servicesHeading: 'Three kinds of work, taken end to end',
   servicesSubhead:
-    'Three kinds of work, each scoped as a defined project rather than an open meter.',
+    'Each one scoped as a defined project with a price and a date on it. Never an open meter.',
+  processEyebrow: 'How it works',
 };
 
 export const cta = {
