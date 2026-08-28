@@ -4,44 +4,50 @@ import Image from 'next/image';
  * The two device mockups used on the landing page.
  *
  * Everything about the frames is CSS: gradient metal edge, black bezel,
- * dynamic island, home indicator, glass highlight, browser chrome. The
- * screenshots underneath are plain files in public/products, so refreshing
- * one never touches this file.
+ * dynamic island, home indicator, browser chrome. The screenshots are plain
+ * files in public/products, so refreshing one never touches this file.
  */
 
 export function PhoneFrame({
   src,
   alt,
+  screenBg,
+  light = false,
   className = '',
-  priority = false,
 }: {
   src: string;
   alt: string;
+  /** The app's own background colour, shown behind the status bar and any
+   *  gap below the screenshot, so the frame reads as the app running. */
+  screenBg: string;
+  /** Light-screened apps need a dark home indicator. */
+  light?: boolean;
   className?: string;
-  priority?: boolean;
 }) {
   return (
     <div className={className}>
-      {/* metal edge */}
-      <div className="rounded-[2.7rem] bg-gradient-to-b from-[#3b4661] via-[#1c2538] to-[#0b1220] p-[2.5px] shadow-[0_50px_100px_-30px_rgba(0,0,0,0.95),0_0_0_1px_rgba(255,255,255,0.05)]">
-        {/* bezel */}
-        <div className="rounded-[2.55rem] bg-[#04060c] p-[7px]">
-          {/* screen */}
-          <div className="relative aspect-[10/21] overflow-hidden rounded-[2rem] bg-ink-3">
+      <div className="rounded-[2.2rem] bg-gradient-to-b from-[#3b4661] via-[#1c2538] to-[#0b1220] p-[2px] shadow-[0_40px_80px_-24px_rgba(0,0,0,0.95),0_0_0_1px_rgba(255,255,255,0.05)]">
+        <div className="rounded-[calc(2.2rem-2px)] bg-[#04060c] p-[6px]">
+          <div
+            className="relative aspect-[10/21] overflow-hidden rounded-[1.7rem]"
+            style={{ backgroundColor: screenBg }}
+          >
+            {/* status-bar breathing room, so the island never sits on content */}
+            <div className="h-[26px]" />
             <Image
               src={src}
               alt={alt}
-              fill
-              sizes="220px"
-              priority={priority}
-              className="object-cover object-top"
+              width={430}
+              height={900}
+              className="h-auto w-full"
             />
-            {/* dynamic island */}
-            <div className="absolute top-[9px] left-1/2 h-[16px] w-[64px] -translate-x-1/2 rounded-full bg-[#04060c]" />
-            {/* home indicator */}
-            <div className="absolute bottom-[7px] left-1/2 h-[4px] w-[84px] -translate-x-1/2 rounded-full bg-white/25" />
-            {/* glass */}
-            <div className="pointer-events-none absolute inset-0 rounded-[2rem] shadow-[inset_0_1px_1px_rgba(255,255,255,0.07),inset_0_0_0_1px_rgba(255,255,255,0.03)]" />
+            <div className="absolute top-[7px] left-1/2 h-[14px] w-[54px] -translate-x-1/2 rounded-full bg-[#04060c]" />
+            <div
+              className={`absolute bottom-[6px] left-1/2 h-[3px] w-[72px] -translate-x-1/2 rounded-full ${
+                light ? 'bg-black/25' : 'bg-white/25'
+              }`}
+            />
+            <div className="pointer-events-none absolute inset-0 rounded-[1.7rem] shadow-[inset_0_1px_1px_rgba(255,255,255,0.07),inset_0_0_0_1px_rgba(255,255,255,0.03)]" />
           </div>
         </div>
       </div>
@@ -64,10 +70,8 @@ export function BrowserFrame({
 }) {
   return (
     <div className={className}>
-      {/* gradient hairline edge */}
       <div className="rounded-2xl bg-gradient-to-b from-[#33405c] via-[#1a2438] to-[#0b1220] p-px shadow-[0_60px_120px_-35px_rgba(0,0,0,0.95)]">
         <div className="overflow-hidden rounded-[calc(1rem-1px)] bg-ink-2">
-          {/* chrome */}
           <div className="relative flex items-center border-b border-white/[0.05] bg-white/[0.025] px-4 py-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
             <div className="flex items-center gap-[7px]">
               <span className="h-[11px] w-[11px] rounded-full bg-[#ff5f57] shadow-[inset_0_0_1px_rgba(0,0,0,0.35)]" />

@@ -47,13 +47,10 @@ export function HeroSection() {
               Send an email
             </a>
           </div>
-          <p className="mt-5 text-sm text-mute-dim">
-            Fixed scope. Fixed price. You own everything at the end.
-          </p>
         </Reveal>
       </div>
 
-      <Reveal delay={480} className="relative z-10 mt-20 lg:mt-24">
+      <Reveal delay={480} className="relative z-10 mt-14 lg:mt-16">
         <div className="relative mx-auto max-w-4xl">
           <DeviceShowcase />
 
@@ -61,12 +58,12 @@ export function HeroSection() {
             label="Live"
             value="playwithchip.com"
             accent
-            className="absolute -top-6 right-0 hidden lg:block"
+            className="absolute -top-5 right-[7%] z-30 hidden lg:block"
           />
           <FloatingCard
             label="Built with"
             value="Next.js · Supabase · AWS"
-            className="absolute bottom-10 -left-10 hidden lg:block"
+            className="absolute -bottom-6 left-[15%] z-30 hidden lg:block"
           />
         </div>
       </Reveal>

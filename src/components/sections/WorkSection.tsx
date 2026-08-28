@@ -3,10 +3,11 @@ import { Reveal } from '@/components/ui/Reveal';
 import { products } from '@/lib/site';
 import { sections } from '@/lib/content';
 
-const shots: Record<string, string> = {
-  Chip: '/products/chip.png',
-  Sage: '/products/sage.png',
-  'The Social Project': '/products/tsp.png',
+const shots: Record<string, { src: string; position: string }> = {
+  Chip: { src: '/products/chip.png', position: 'object-top' },
+  Sage: { src: '/products/sage.png', position: 'object-top' },
+  // portrait composition: the content band sits ~38% down the image
+  'The Social Project': { src: '/products/tsp.png', position: 'object-[center_36%]' },
 };
 
 export function WorkSection() {
@@ -35,11 +36,11 @@ export function WorkSection() {
                 >
                   <div className="relative h-44 overflow-hidden border-b border-line bg-ink-3">
                     <Image
-                      src={shots[product.name] ?? '/products/chip.png'}
+                      src={shots[product.name]?.src ?? '/products/chip.png'}
                       alt={`${product.name} screenshot`}
                       width={1440}
                       height={787}
-                      className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                      className={`h-full w-full object-cover ${shots[product.name]?.position ?? 'object-top'} transition-transform duration-700 group-hover:scale-[1.03]`}
                     />
                   </div>
 
