@@ -14,10 +14,7 @@ export function Header() {
 
         <div className="hidden items-center gap-8 md:flex">
           <a href="#work" className="text-sm text-mute transition-colors hover:text-paper">
-            Work
-          </a>
-          <a href="#services" className="text-sm text-mute transition-colors hover:text-paper">
-            Services
+            Projects
           </a>
           <a href="#process" className="text-sm text-mute transition-colors hover:text-paper">
             Process

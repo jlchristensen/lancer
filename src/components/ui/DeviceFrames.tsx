@@ -59,12 +59,16 @@ export function BrowserFrame({
   src,
   alt,
   url,
+  imgWidth = 1485,
+  imgHeight = 812,
   className = '',
   priority = false,
 }: {
   src: string;
   alt: string;
   url: string;
+  imgWidth?: number;
+  imgHeight?: number;
   className?: string;
   priority?: boolean;
 }) {
@@ -96,8 +100,8 @@ export function BrowserFrame({
           <Image
             src={src}
             alt={alt}
-            width={1485}
-            height={812}
+            width={imgWidth}
+            height={imgHeight}
             priority={priority}
             className="h-auto w-full"
           />

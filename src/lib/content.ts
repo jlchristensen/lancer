@@ -15,28 +15,8 @@ export const hero = {
     'Lancer tunes the site you already have and puts AI to work in the operations behind it. Fixed scope, fixed price, and you own everything at the end.',
 };
 
-export const services = [
-  {
-    title: 'Website optimization & rebuilds',
-    description:
-      'Speed, clarity, and conversion for the site you already have. Or a clean rebuild when it stopped matching the business behind it. Easy to edit, and yours to keep.',
-    /** Every proof line must be true and checkable. No exceptions. */
-    proof: 'This site is one. Rebuilt and shipped in a day.',
-  },
-  {
-    title: 'AI implementation',
-    description:
-      'Agents and automations wired into how your business actually runs: intake, follow-ups, reporting, internal tools. Hours back every week, not a chatbot bolted on.',
-    proof: 'This studio runs on the same workflows we install.',
-  },
-];
-
 export const sections = {
-  workHeading: 'Built by Lancer',
-  workSubhead: 'These are ours. Same hands, same standards as the client work.',
-  servicesHeading: 'Two kinds of work, taken end to end',
-  servicesSubhead:
-    'Each one scoped as a defined project with a price and a date on it. Never an open meter.',
+  workHeading: 'Recent Lancer projects',
 };
 
 export const cta = {

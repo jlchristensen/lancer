@@ -66,8 +66,14 @@ projects/lancer/
 
 ## Current State of the Landing Page
 
-One page, top to bottom: hero, Built by Lancer, What we do, How it works,
-closing CTA, footer.
+One page, top to bottom: hero, Recent Lancer projects, How it works, closing
+CTA, footer. The services section was cut entirely (Jack: AI slop) and its
+positioning now lives in the hero pair alone. Project cards are deliberately
+spare: a 16:10 pre-cropped image, name, one-line tagline, link — the card
+images live in public/products as card-*.png, purpose-cropped so nothing gets
+zoom-mangled at render time. chip-mobile.png is a real phone recording frame
+Jack captured; prefer real device captures over desktop crops for any phone
+frame, and never fabricate a UI state that does not exist.
 
 The live products stand in as social proof, since there are no testimonials
 or client logos yet. When real ones exist, they go above the fold.
