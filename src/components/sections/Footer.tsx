@@ -8,15 +8,12 @@ export function Footer() {
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <div className="flex items-center gap-2.5">
-              <span className="h-5 w-5 rounded-md bg-accent" />
-              <span className="font-heavy text-[15px] font-semibold text-paper">
-                {site.name}
-              </span>
-            </div>
+            <span className="font-heavy text-[17px] font-semibold tracking-tight text-paper">
+              {site.name}
+            </span>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-mute-dim">
-              {site.wordmark}. Websites, products, and the internal tools behind
-              them.
+              {site.wordmark}. Website optimization and AI implementation for
+              businesses.
             </p>
           </div>
 

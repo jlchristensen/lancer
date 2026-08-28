@@ -14,9 +14,9 @@ const archivo = Archivo({
   weight: ["400", "600", "800"],
 });
 
-const title = "Lancer · Software studio";
+const title = "Lancer Optimization";
 const description =
-  "Lancer builds websites, products, and the internal tools behind them. Fixed scope, fixed price, and you own everything at the end.";
+  "Lancer optimizes business websites and puts AI to work in the operations behind them. Fixed scope, fixed price, and you own everything at the end.";
 
 export const viewport: Viewport = {
   themeColor: "#faf3ee",

@@ -4,7 +4,7 @@
 
 This is the website for **Lancer**, the business entity. Wordmark: **Lancer Optimization**.
 
-Lancer is a software studio. It owns the products built in the garage (Chip, Sage, Stitch, tabtab, The Social Project) and takes on client work in three areas: websites new and rebuilt, product builds from 0 to 1, and automation and dashboards.
+Lancer is Jack's business entity. **The offer is optimization, not software builds**: tuning and rebuilding the websites businesses already have, and implementing AI in the operations behind them (agents, automations, internal tools, reporting). The products built in the garage (Chip, Sage, Stitch, tabtab, The Social Project) are owned by Lancer and serve as proof of craft, not as the service.
 
 **The old home services marketplace is scrapped.** This repo used to hold it. Its code is gone from `main` as of the studio rebuild and lives on in git history only. Do not restore it, cite it, or build on it.
 

@@ -41,7 +41,7 @@ export function HeroSection() {
 
           <FloatingCard
             label="Live"
-            value="playwithchip.com"
+            value="learningwithsage.com"
             accent
             className="absolute -top-5 right-[7%] z-30 hidden lg:block"
           />

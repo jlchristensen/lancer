@@ -8,39 +8,33 @@
 
 export const hero = {
   eyebrow: 'Lancer Optimization',
-  /** Rendered as two tones: A in white, B in grey, like the reference. */
-  headlineA: 'We build the software',
-  headlineB: 'your business is missing.',
+  /** Rendered as two tones: A in ink, B in grey. */
+  headlineA: 'Your website, optimized.',
+  headlineB: 'Your business, automated.',
   subhead:
-    'Websites, products, and the internal tools behind them. Fixed scope, fixed price, and you own everything at the end.',
+    'Lancer tunes the site you already have and puts AI to work in the operations behind it. Fixed scope, fixed price, and you own everything at the end.',
 };
 
 export const services = [
   {
-    title: 'Websites, new and rebuilt',
+    title: 'Website optimization & rebuilds',
     description:
-      'A new site, or a rebuild of one that stopped matching the business behind it. Quick to load, easy to edit, and yours to keep.',
+      'Speed, clarity, and conversion for the site you already have. Or a clean rebuild when it stopped matching the business behind it. Easy to edit, and yours to keep.',
     /** Every proof line must be true and checkable. No exceptions. */
     proof: 'This site is one. Rebuilt and shipped in a day.',
   },
   {
-    title: 'Product builds, 0 to 1',
+    title: 'AI implementation',
     description:
-      'From a rough sketch to something people can sign into and pay for. Web and mobile, taken all the way to launch.',
-    proof: 'Chip went from an idea to paid subscriptions.',
-  },
-  {
-    title: 'Automation and dashboards',
-    description:
-      'The work that gives hours back every week. Internal tools, automated pipelines, and reporting you can read at a glance.',
-    proof: 'Our own releases run on guardrails we built first.',
+      'Agents and automations wired into how your business actually runs: intake, follow-ups, reporting, internal tools. Hours back every week, not a chatbot bolted on.',
+    proof: 'This studio runs on the same workflows we install.',
   },
 ];
 
 export const sections = {
   workHeading: 'Built by Lancer',
   workSubhead: 'These are ours. Same hands, same standards as the client work.',
-  servicesHeading: 'Three kinds of work, taken end to end',
+  servicesHeading: 'Two kinds of work, taken end to end',
   servicesSubhead:
     'Each one scoped as a defined project with a price and a date on it. Never an open meter.',
 };

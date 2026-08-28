@@ -26,8 +26,8 @@ export function PhoneFrame({
 }) {
   return (
     <div className={className}>
-      <div className="rounded-[2.2rem] bg-gradient-to-b from-[#3b4661] via-[#1c2538] to-[#0b1220] p-[2px] shadow-[0_36px_70px_-26px_rgba(22,24,29,0.45)]">
-        <div className="rounded-[calc(2.2rem-2px)] bg-[#04060c] p-[6px]">
+      <div className="rounded-[2.2rem] bg-gradient-to-b from-[#f2f0ec] via-[#d9d6d0] to-[#b7b3ac] p-[2px] shadow-[0_36px_70px_-26px_rgba(22,24,29,0.35)]">
+        <div className="rounded-[calc(2.2rem-2px)] bg-[#101010] p-[5px]">
           <div
             className="relative aspect-[10/21] overflow-hidden rounded-[1.7rem]"
             style={{ backgroundColor: screenBg }}
@@ -70,15 +70,15 @@ export function BrowserFrame({
 }) {
   return (
     <div className={className}>
-      <div className="rounded-2xl bg-gradient-to-b from-[#33405c] via-[#1a2438] to-[#0b1220] p-px shadow-[0_50px_100px_-32px_rgba(22,24,29,0.4)]">
-        <div className="overflow-hidden rounded-[calc(1rem-1px)] bg-ink-2">
-          <div className="relative flex items-center border-b border-white/[0.05] bg-white/[0.025] px-4 py-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+      <div className="rounded-2xl bg-gradient-to-b from-white to-[#e6e3de] p-px shadow-[0_50px_100px_-32px_rgba(22,24,29,0.35)]">
+        <div className="overflow-hidden rounded-[calc(1rem-1px)] bg-white">
+          <div className="relative flex items-center border-b border-black/[0.06] bg-[#f6f4f1] px-4 py-2.5">
             <div className="flex items-center gap-[7px]">
               <span className="h-[11px] w-[11px] rounded-full bg-[#ff5f57] shadow-[inset_0_0_1px_rgba(0,0,0,0.35)]" />
               <span className="h-[11px] w-[11px] rounded-full bg-[#febc2e] shadow-[inset_0_0_1px_rgba(0,0,0,0.35)]" />
               <span className="h-[11px] w-[11px] rounded-full bg-[#28c840] shadow-[inset_0_0_1px_rgba(0,0,0,0.35)]" />
             </div>
-            <div className="absolute left-1/2 flex -translate-x-1/2 items-center gap-1.5 rounded-md bg-black/30 px-5 py-[3.5px] text-[11px] text-mute-dim">
+            <div className="absolute left-1/2 flex -translate-x-1/2 items-center gap-1.5 rounded-md bg-black/[0.05] px-5 py-[3.5px] text-[11px] text-mute">
               <svg
                 viewBox="0 0 24 24"
                 fill="none"

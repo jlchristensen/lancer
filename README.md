@@ -2,7 +2,7 @@
 
 The website for **Lancer**, the business entity. Wordmark: **Lancer Optimization**.
 
-Lancer is a software studio. It owns the products built in the garage and takes on client work in three areas: websites new and rebuilt, product builds from 0 to 1, and automation and dashboards.
+Lancer is Jack's business entity. The offer is optimization, not software builds: tuning and rebuilding the websites businesses already have, and implementing AI in the operations behind them. The garage products are proof of craft.
 
 **Live:** https://welcometolancer.com
 

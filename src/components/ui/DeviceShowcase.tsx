@@ -12,22 +12,21 @@ export function DeviceShowcase() {
       {/* stage bloom */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-[-9rem] top-[6%] bottom-[-8rem] -z-10 bg-[radial-gradient(68%_72%_at_50%_58%,rgba(255,255,255,0.75),rgba(214,190,255,0.4)_52%,transparent_78%)] blur-2xl"
+        className="absolute inset-x-[-9rem] top-[6%] bottom-[-8rem] -z-10 bg-[radial-gradient(68%_72%_at_50%_58%,rgba(255,255,255,0.9),rgba(214,190,255,0.35)_55%,transparent_80%)] blur-2xl"
       />
 
       <div className="flex items-end justify-center">
         <PhoneFrame
-          src="/products/sage.png"
-          alt="Sage, an adaptive learning app, on a phone"
-          screenBg="#f5f3ef"
-          light
+          src="/products/chip-phone.png"
+          alt="Chip, a poker learning app, on a phone"
+          screenBg="#0c0f14"
           className="z-20 -mr-7 w-[96px] translate-y-5 rotate-[-6deg] sm:-mr-10 sm:w-[124px] lg:-mr-12 lg:w-[148px]"
         />
 
         <BrowserFrame
-          src="/products/chip.png"
-          alt="Chip, a poker learning app, in a browser window"
-          url="playwithchip.com"
+          src="/products/sage-desktop.png"
+          alt="Sage, an adaptive learning app, in a browser window"
+          url="learningwithsage.com"
           priority
           className="z-10 min-w-0 max-w-3xl flex-1"
         />
