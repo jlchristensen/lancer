@@ -87,55 +87,73 @@ Calendly URL into that one field and the whole site switches over.
 
 ## Design System
 
-The design is called **Silk**. It was picked out of eight options in August
-2026. Two rules came out of that process and they are the ones to hold to.
+The design is **dark SaaS**: deep navy ground, one blue accent, a soft glow
+behind the hero, and the live products shown in device frames. Replaced the
+earlier monochrome "Silk" direction in Aug 2026 (Silk is in git history).
 
-**No numbered sets.** No 01 / 02 / 03, no step badges, no bulleted feature
-lists. The services are three statements with room around them, and the
-process is a paragraph. Numbering is only allowed if the content is genuinely
-a sequence the reader has to follow in order, and even then, question it.
+Three rules carried over from how the direction was chosen, and they still hold:
 
-**No AI house style.** No gradient text. No frosted glass cards. No indigo or
-violet. If a layout could sit unchanged on any other startup landing page,
-it is wrong.
+**No numbered sets.** No 01 / 02 / 03, no step badges. The services are three
+cards without numbers and the process is a paragraph. Numbering is only for
+content the reader must follow in order.
+
+**Nothing invented.** The reference designs this was built from are full of
+placeholder metrics ("+24%", "99.9%", "$50k saved") and fabricated
+testimonials with invented names and job titles. **None of that goes on this
+site.** The floating cards carry facts only: what a thing is, not how well it
+is doing. There is no testimonials section and there will not be one until
+there are real clients willing to be quoted.
+
+**The products are the proof.** Chip, Sage and The Social Project are real,
+live and good-looking. They do the job that a fake dashboard mockup does on
+other sites, and they do it honestly.
 
 ### Colour
 
-There is no accent colour. The whole palette is four values, in `globals.css`:
-
 | Token | Value | Used for |
 |-------|-------|----------|
-| `pitch` | `#08080a` | The ground |
-| `pitch-2` | `#101013` | Tiles and panels |
-| `bone` | `#ece5d8` | Headlines, primary buttons |
-| `ash` | `#8b857c` | Body copy |
-| `ash-dim` | `#5a554e` | Footer, hairlines |
+| `ink` | `#070b14` | The ground |
+| `ink-2` | `#0b1120` | Section bands, cards |
+| `ink-3` | `#111a2e` | Raised surfaces, device frames |
+| `line` | `#1c2740` | Borders and hairlines |
+| `paper` | `#e9edf7` | Headlines and primary text |
+| `mute` | `#8a96ad` | Body copy |
+| `mute-dim` | `#5d6980` | Labels, footer |
+| `accent` | `#2f7dff` | The only colour. Buttons, live dots, hovers |
 
-Buttons are bone on pitch, and invert to white on hover. Quiet buttons are a
-hairline border that brightens.
+`accent-soft` and `accent-deep` are the hover and glow variants. Nothing else
+gets colour.
 
 ### Typography
 
-- **Archivo** (`font-heavy`, weight 800, tight tracking) for every headline
+- **Archivo** (`font-heavy`) for headlines, at **normal weight**, large, tight
+  tracking. Not bold: the reference's authority comes from size and space
 - **Geist** (`font-sans`) for body copy
-- No third face, no monospace
 
-### Shape and motion
+### Screenshots
 
-Everything is rounded. `rounded-full` on buttons and nav, `rounded-3xl` on
-tiles. Transitions run 300 to 500ms, never faster: the whole point of this
-direction is that it feels unhurried.
+`public/products/` holds `chip.jpg`, `sage.jpg` and `tsp.jpg`, captured from
+the live sites. The device frames around them are drawn in CSS in
+`components/ui/DeviceShowcase.tsx`, not baked into the images, so refreshing a
+screenshot is a matter of dropping in a new file at the same aspect ratio.
 
-`SilkField` draws long lines drifting across the hero and the closing
-section. It is decorative, hidden from screen readers, and draws a single
-still frame when the visitor has asked for reduced motion. `Reveal` fades
-sections in as they scroll into view and is disabled the same way.
+- `chip.jpg` is a desktop capture, sits in the browser frame
+- `sage.jpg` is cropped to the app's own phone column
+- `tsp.jpg` is a desktop capture letterboxed onto its own background colour,
+  so the phone frame shows it whole rather than cropping the headline
+
+### Motion
+
+`Reveal` fades sections in on scroll and is disabled under
+`prefers-reduced-motion`. The glow is static CSS. **Note:** CSS transitions are
+frozen in background tabs, so an automated screenshot of this page can look
+blank. That is not a bug, it caught us once already.
 
 ### Copy rules
 
 No em-dashes in anything a visitor reads. Use the middot (·) for label
-separators. Avoid the AI-tell vocabulary listed in the garage CLAUDE.md.
-Read it out loud before shipping it.
+separators. Avoid the AI-tell vocabulary in the garage CLAUDE.md. Read it out
+loud before shipping.
 
 ## Development Commands
 

@@ -1,28 +1,46 @@
 import { Reveal } from '@/components/ui/Reveal';
 import { sections, services } from '@/lib/content';
 
-/**
- * Three statements with room around them. Deliberately not numbered and
- * not boxed: the work is three kinds of thing, not three steps.
- */
+/** A small mark per service. Geometric, drawn inline, no icon dependency. */
+const marks = [
+  <path key="a" d="M3 7h18M3 12h12M3 17h7" />,
+  <path key="b" d="M12 3v18M4 8l8-5 8 5M4 16l8 5 8-5" />,
+  <path key="c" d="M4 19V9m5 10V5m5 14v-7m5 7V11" />,
+];
+
 export function ServicesSection() {
   return (
-    <section id="services" className="px-6 py-28 lg:px-8">
-      <div className="mx-auto max-w-5xl">
+    <section id="services" className="px-6 py-24 lg:px-8 lg:py-32">
+      <div className="mx-auto max-w-6xl">
         <Reveal>
-          <h2 className="font-heavy text-3xl font-extrabold tracking-tight text-bone lg:text-5xl">
+          <h2 className="font-heavy max-w-lg text-3xl leading-tight font-normal tracking-[-0.02em] text-paper lg:text-[2.6rem]">
             {sections.servicesHeading}
           </h2>
+          <p className="mt-4 max-w-xl text-mute">{sections.servicesSubhead}</p>
         </Reveal>
 
-        <div className="mt-20 space-y-20">
+        <div className="mt-14 grid gap-5 md:grid-cols-3">
           {services.map((service, index) => (
-            <Reveal key={service.title} delay={index * 100}>
-              <div className="grid gap-5 md:grid-cols-[1fr_minmax(0,22rem)] md:gap-16">
-                <h3 className="font-heavy max-w-md text-2xl leading-tight font-extrabold tracking-tight text-bone lg:text-4xl">
+            <Reveal key={service.title} delay={index * 110} className="h-full">
+              <div className="group h-full rounded-2xl border border-line bg-ink-2/60 p-7 transition-colors duration-500 hover:border-accent/40 hover:bg-ink-3/60">
+                <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-line bg-ink-3 text-accent-soft">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-5 w-5"
+                    aria-hidden="true"
+                  >
+                    {marks[index % marks.length]}
+                  </svg>
+                </span>
+                <h3 className="mt-6 text-lg font-semibold text-paper">
                   {service.title}
                 </h3>
-                <p className="text-lg leading-relaxed text-ash">
+                <p className="mt-3 text-[15px] leading-relaxed text-mute">
                   {service.description}
                 </p>
               </div>

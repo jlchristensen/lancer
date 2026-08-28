@@ -39,21 +39,22 @@ over. Nothing else to change.
 
 ## The design
 
-It is called **Silk**, picked out of eight options in August 2026. Dark, no
-accent colour, rounded, unhurried. Long lines drift across the hero and the
-closing section on a canvas.
+Dark SaaS: deep navy, one blue accent, a glow behind the hero, and the live
+products shown in device frames. It replaced an earlier monochrome direction
+called Silk, which is still in git history.
 
-Two rules to hold to if you are changing it:
+Three rules if you change it:
 
-- **Nothing gets numbered.** No 01 / 02 / 03, no step badges, no bulleted
-  feature lists. The services are three statements and the process is a
-  paragraph, on purpose.
-- **No gradient text, no glass cards, no indigo.** If a layout could sit
-  unchanged on any other startup landing page, it is wrong.
+- **Nothing gets numbered.** No 01 / 02 / 03, no step badges. The process is a
+  paragraph on purpose.
+- **Nothing invented.** No placeholder metrics, no fabricated testimonials. The
+  floating cards say what a thing is, never how well it is doing.
+- **The products are the proof.** Chip, Sage and The Social Project do the job
+  a fake dashboard does elsewhere, honestly.
 
-The palette is four values and lives in `src/app/globals.css`. Headlines are
-Archivo, body copy is Geist. All motion stops for visitors whose device asks
-for reduced motion.
+The palette is eight tokens in `src/app/globals.css`. Headlines are Archivo at
+normal weight, body is Geist. Product screenshots live in `public/products/`
+and their frames are CSS, so swapping a screenshot is just replacing a file.
 
 ## Project structure
 
