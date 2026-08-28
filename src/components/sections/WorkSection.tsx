@@ -15,10 +15,7 @@ export function WorkSection() {
     <section id="work" className="border-y border-line/60 bg-ink-2/40 px-6 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-6xl">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="font-heavy text-[11px] font-semibold tracking-[0.2em] text-accent-soft uppercase">
-            {sections.workEyebrow}
-          </p>
-          <h2 className="mt-3 font-heavy text-3xl leading-tight font-normal tracking-[-0.02em] text-paper lg:text-[2.6rem]">
+          <h2 className="font-heavy text-3xl leading-tight font-normal tracking-[-0.02em] text-paper lg:text-[2.6rem]">
             {sections.workHeading}
           </h2>
           <p className="mt-4 text-mute">{sections.workSubhead}</p>

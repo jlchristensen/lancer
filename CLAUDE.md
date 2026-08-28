@@ -108,6 +108,14 @@ there are real clients willing to be quoted.
 live and good-looking. They do the job that a fake dashboard mockup does on
 other sites, and they do it honestly.
 
+**Banned by name** after Jack flagged them as AI giveaways (Aug 2026): the
+announcement-pill badge with dot and arrow, the faint background grid,
+icon-in-rounded-square feature cards, and letterspaced uppercase eyebrow
+labels. Do not reintroduce any of them. The services section is editorial
+hairline rows instead, each ending in a Proof line that points at something
+real we shipped. Every proof must stay true and checkable; if one stops
+being true, fix or remove it the same day.
+
 ### Colour
 
 | Token | Value | Used for |

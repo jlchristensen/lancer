@@ -60,15 +60,6 @@ body {
   background: radial-gradient(circle, rgba(120, 86, 255, 0.16), transparent 62%);
 }
 
-/* Faint grid, so the dark has texture rather than being flat black. */
-.grid-veil {
-  background-image:
-    linear-gradient(to right, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: radial-gradient(ellipse at 50% 0%, black, transparent 72%);
-}
-
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1 !important;

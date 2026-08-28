@@ -20,28 +20,29 @@ export const services = [
     title: 'Websites, new and rebuilt',
     description:
       'A new site, or a rebuild of one that stopped matching the business behind it. Quick to load, easy to edit, and yours to keep.',
+    /** Every proof line must be true and checkable. No exceptions. */
+    proof: 'This site is one. Rebuilt and shipped in a day.',
   },
   {
     title: 'Product builds, 0 to 1',
     description:
       'From a rough sketch to something people can sign into and pay for. Web and mobile, taken all the way to launch.',
+    proof: 'Chip went from an idea to paid subscriptions.',
   },
   {
     title: 'Automation and dashboards',
     description:
       'The work that gives hours back every week. Internal tools, automated pipelines, and reporting you can read at a glance.',
+    proof: 'Our own releases run on guardrails we built first.',
   },
 ];
 
 export const sections = {
-  workEyebrow: 'Live right now',
   workHeading: 'Built by Lancer',
   workSubhead: 'These are ours. Same hands, same standards as the client work.',
-  servicesEyebrow: 'What we do',
   servicesHeading: 'Three kinds of work, taken end to end',
   servicesSubhead:
     'Each one scoped as a defined project with a price and a date on it. Never an open meter.',
-  processEyebrow: 'How it works',
 };
 
 export const cta = {
