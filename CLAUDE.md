@@ -80,10 +80,11 @@ Two files cover almost every request:
   products appear
 - **`src/lib/content.ts`** for every word on the page
 
-**The Calendly link is not set yet.** `site.calendlyUrl` is an empty string.
-While it is empty, every "Book a call" button opens an email instead and its
-label reads "Start a project", so no button is ever a dead end. Paste the
-Calendly URL into that one field and the whole site switches over.
+**The Calendly link is set** (`site.calendlyUrl`, a 30-minute slot). Every
+booking button reads "Book a call" and opens Calendly. If the link is ever
+cleared, the buttons fall back to email and relabel themselves, so nothing
+dead-ends. The process copy says "thirty minutes" because the slot is 30
+minutes; keep those in sync.
 
 ## Design System
 

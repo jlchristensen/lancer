@@ -32,10 +32,9 @@ Two files cover almost everything you would want to edit.
 **`src/lib/content.ts`** holds every word on the page: the headline, the
 three services, the process paragraph, and the closing pitch.
 
-**The Calendly link is not set yet.** While `site.calendlyUrl` is an empty
-string, every "Book a call" button opens an email instead and reads "Start a
-project". Paste the Calendly URL into that field and the whole site switches
-over. Nothing else to change.
+**Booking** goes through `site.calendlyUrl` (a 30-minute Calendly slot). If
+the link is ever cleared, every booking button falls back to email and
+relabels itself, so nothing dead-ends.
 
 ## The design
 

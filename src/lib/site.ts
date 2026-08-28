@@ -14,7 +14,7 @@ export const site = {
    * button on the site switches over to it. Left empty, those buttons
    * open an email instead, so nothing is ever a dead end.
    */
-  calendlyUrl: '',
+  calendlyUrl: 'https://calendly.com/jackatlancer/30min',
 } as const;
 
 const emailHref = `mailto:${site.email}?subject=${encodeURIComponent(

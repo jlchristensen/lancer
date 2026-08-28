@@ -56,7 +56,7 @@ export const processProse = {
   sentences: [
     {
       lead: 'It starts with a call.',
-      rest: "Twenty minutes on what's slow, what's manual, and what it costs you today.",
+      rest: "Thirty minutes on what's slow, what's manual, and what it costs you today.",
     },
     {
       lead: 'Then a written scope.',
