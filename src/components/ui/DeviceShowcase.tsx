@@ -1,10 +1,10 @@
 import { BrowserFrame, PhoneFrame } from './DeviceFrames';
 
 /**
- * The hero centrepiece: the Sage window with one real phone tucked at its
- * edge — Chip's actual mobile screen, recorded on a phone, not a desktop
- * crop. One good phone beats three mediocre ones; The Social Project has
- * no capture worth framing yet, so it stays out.
+ * The hero centrepiece: the Sage window flanked by two real phones — Chip's
+ * mobile screen from an actual phone recording, and The Social Project's
+ * live hero captured on a phone at jointhesocialproject.com. Every screen
+ * is a real capture, never a mockup of a state that does not exist.
  */
 export function DeviceShowcase() {
   return (
@@ -15,6 +15,12 @@ export function DeviceShowcase() {
       />
 
       <div className="flex items-end justify-center">
+        <PhoneFrame
+          src="/products/tsp-mobile.png"
+          alt="The Social Project, a nightly question circle, on a phone"
+          screenBg="#131d12"
+          className="z-20 hidden -rotate-[5deg] mb-[-14px] -mr-16 w-[128px] sm:-mr-20 sm:block sm:w-[156px] lg:w-[172px]"
+        />
         <BrowserFrame
           src="/products/sage-window.png"
           alt="Sage, an adaptive learning app, in a browser window"

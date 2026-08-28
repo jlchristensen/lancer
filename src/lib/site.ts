@@ -57,6 +57,6 @@ export const products: Product[] = [
     tagline: 'One question, every night',
     description:
       'A small group, one question a day, and a fire that goes out if nobody answers. Built to pull friends back together.',
-    href: 'https://main.d1jaykgbbddd26.amplifyapp.com',
+    href: 'https://jointhesocialproject.com',
   },
 ];

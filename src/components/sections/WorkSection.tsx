@@ -12,7 +12,7 @@ import { sections } from '@/lib/content';
 const shots: Record<string, { src: string; w: number; h: number }> = {
   Chip: { src: '/products/card-chip.png', w: 1320, h: 825 },
   Sage: { src: '/products/card-sage.png', w: 785, h: 490 },
-  'The Social Project': { src: '/products/card-tsp.png', w: 742, h: 463 },
+  'The Social Project': { src: '/products/card-tsp.png', w: 1320, h: 825 },
 };
 
 export function WorkSection() {
