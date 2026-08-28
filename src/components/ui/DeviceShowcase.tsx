@@ -12,7 +12,7 @@ export function DeviceShowcase() {
       {/* stage bloom */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-[-9rem] top-[6%] bottom-[-8rem] -z-10 bg-[radial-gradient(68%_72%_at_50%_58%,rgba(47,125,255,0.5),rgba(122,86,255,0.26)_50%,transparent_76%)] blur-2xl"
+        className="absolute inset-x-[-9rem] top-[6%] bottom-[-8rem] -z-10 bg-[radial-gradient(68%_72%_at_50%_58%,rgba(255,255,255,0.75),rgba(214,190,255,0.4)_52%,transparent_78%)] blur-2xl"
       />
 
       <div className="flex items-end justify-center">
@@ -43,7 +43,7 @@ export function DeviceShowcase() {
       {/* contact shadow */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-20 -bottom-9 -z-10 h-14 rounded-[100%] bg-black/70 blur-2xl"
+        className="absolute inset-x-20 -bottom-9 -z-10 h-14 rounded-[100%] bg-black/15 blur-2xl"
       />
     </div>
   );

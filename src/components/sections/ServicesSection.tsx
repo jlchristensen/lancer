@@ -28,8 +28,7 @@ export function ServicesSection() {
                   <p className="max-w-2xl leading-relaxed text-mute">
                     {service.description}
                   </p>
-                  <p className="mt-4 text-sm text-mute-dim">
-                    <span className="text-accent-soft">Proof</span> ·{' '}
+                  <p className="mt-3 text-[15px] font-medium text-paper">
                     {service.proof}
                   </p>
                 </div>

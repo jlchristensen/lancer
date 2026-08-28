@@ -26,7 +26,7 @@ export function PhoneFrame({
 }) {
   return (
     <div className={className}>
-      <div className="rounded-[2.2rem] bg-gradient-to-b from-[#3b4661] via-[#1c2538] to-[#0b1220] p-[2px] shadow-[0_40px_80px_-24px_rgba(0,0,0,0.95),0_0_0_1px_rgba(255,255,255,0.05)]">
+      <div className="rounded-[2.2rem] bg-gradient-to-b from-[#3b4661] via-[#1c2538] to-[#0b1220] p-[2px] shadow-[0_36px_70px_-26px_rgba(22,24,29,0.45)]">
         <div className="rounded-[calc(2.2rem-2px)] bg-[#04060c] p-[6px]">
           <div
             className="relative aspect-[10/21] overflow-hidden rounded-[1.7rem]"
@@ -70,7 +70,7 @@ export function BrowserFrame({
 }) {
   return (
     <div className={className}>
-      <div className="rounded-2xl bg-gradient-to-b from-[#33405c] via-[#1a2438] to-[#0b1220] p-px shadow-[0_60px_120px_-35px_rgba(0,0,0,0.95)]">
+      <div className="rounded-2xl bg-gradient-to-b from-[#33405c] via-[#1a2438] to-[#0b1220] p-px shadow-[0_50px_100px_-32px_rgba(22,24,29,0.4)]">
         <div className="overflow-hidden rounded-[calc(1rem-1px)] bg-ink-2">
           <div className="relative flex items-center border-b border-white/[0.05] bg-white/[0.025] px-4 py-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
             <div className="flex items-center gap-[7px]">

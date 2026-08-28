@@ -7,7 +7,7 @@ import { hero } from '@/lib/content';
 
 export function HeroSection() {
   return (
-    <section className="glow-hero relative overflow-hidden px-6 pt-32 pb-24 lg:px-8 lg:pt-40">
+    <section className="relative overflow-hidden px-6 pt-32 pb-24 lg:px-8 lg:pt-40">
       <div className="relative z-10 mx-auto max-w-3xl text-center">
         <Reveal>
           <h1 className="font-heavy text-[2.5rem] leading-[1.08] font-normal tracking-[-0.02em] text-paper sm:text-6xl">

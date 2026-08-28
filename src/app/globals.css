@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #070b14;
-  --foreground: #e9edf7;
+  --background: #faf6f2;
+  --foreground: #16181d;
 }
 
 @theme inline {
@@ -12,18 +12,20 @@
   --font-sans: var(--font-geist-sans);
   --font-heavy: var(--font-archivo);
 
-  /* Deep navy ground, one blue accent. Nothing else carries colour. */
-  --color-ink: #070b14;
-  --color-ink-2: #0b1120;
-  --color-ink-3: #111a2e;
-  --color-line: #1c2740;
+  /* Light theme. The same token NAMES the components already use, with
+     light values behind them: ink family = surfaces, paper = primary text.
+     The page ground is the pastel gradient painted on body below. */
+  --color-ink: #ffffff;
+  --color-ink-2: #ffffff;
+  --color-ink-3: #f4f1ee;
+  --color-line: #e7e2dc;
 
-  --color-paper: #e9edf7;
-  --color-mute: #8a96ad;
-  --color-mute-dim: #5d6980;
+  --color-paper: #16181d;
+  --color-mute: #5a6068;
+  --color-mute-dim: #969ba3;
 
   --color-accent: #2f7dff;
-  --color-accent-soft: #6ba5ff;
+  --color-accent-soft: #1b5fd9;
   --color-accent-deep: #1b5fd9;
 }
 
@@ -31,33 +33,16 @@ html {
   scroll-behavior: smooth;
 }
 
+/* The Polymer-style wash: lavender into peach, soft and even. Fixed so the
+   gradient does not scroll away and every section sits in the same light. */
 body {
-  background: var(--background);
   color: var(--foreground);
-}
-
-/* The hero glow. Two soft lights well behind the type. */
-.glow-hero::before,
-.glow-hero::after {
-  content: "";
-  position: absolute;
-  inset-block-start: -12rem;
-  width: 46rem;
-  height: 46rem;
-  border-radius: 9999px;
-  filter: blur(90px);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.glow-hero::before {
-  left: -14rem;
-  background: radial-gradient(circle, rgba(47, 125, 255, 0.22), transparent 62%);
-}
-
-.glow-hero::after {
-  right: -16rem;
-  background: radial-gradient(circle, rgba(120, 86, 255, 0.16), transparent 62%);
+  background:
+    radial-gradient(120% 90% at 12% 0%, rgba(214, 190, 255, 0.55), transparent 55%),
+    radial-gradient(110% 90% at 88% 12%, rgba(255, 200, 164, 0.5), transparent 55%),
+    radial-gradient(120% 100% at 50% 100%, rgba(255, 214, 189, 0.35), transparent 60%),
+    linear-gradient(135deg, #f6ecff 0%, #faf3f0 45%, #fde7d6 100%);
+  background-attachment: fixed;
 }
 
 @media (prefers-reduced-motion: reduce) {

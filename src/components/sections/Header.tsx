@@ -3,8 +3,8 @@ import { bookingHref, bookingLabel, site } from '@/lib/site';
 
 export function Header() {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-line/60 bg-ink/80 backdrop-blur-xl">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3.5 lg:px-8">
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-3">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between rounded-2xl bg-white/85 px-5 py-3 shadow-[0_8px_30px_-12px_rgba(22,24,29,0.25)] ring-1 ring-black/5 backdrop-blur-xl lg:px-6">
         <Link href="/" className="flex items-center gap-2.5">
           <span className="h-5 w-5 rounded-md bg-accent shadow-[0_0_18px_rgba(47,125,255,0.6)]" />
           <span className="font-heavy text-[15px] font-semibold tracking-tight text-paper">
@@ -26,7 +26,7 @@ export function Header() {
 
         <a
           href={bookingHref}
-          className="rounded-full bg-accent px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-deep"
+          className="rounded-full bg-[#16181d] px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-black"
         >
           {bookingLabel}
         </a>

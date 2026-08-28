@@ -19,8 +19,8 @@ const description =
   "Lancer builds websites, products, and the internal tools behind them. Fixed scope, fixed price, and you own everything at the end.";
 
 export const viewport: Viewport = {
-  themeColor: "#070b14",
-  colorScheme: "dark",
+  themeColor: "#faf3ee",
+  colorScheme: "light",
 };
 
 export const metadata: Metadata = {
@@ -58,7 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${archivo.variable} bg-ink font-sans text-paper antialiased`}
+        className={`${geistSans.variable} ${archivo.variable} font-sans text-paper antialiased`}
       >
         {children}
       </body>

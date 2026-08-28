@@ -12,7 +12,7 @@ const shots: Record<string, { src: string; position: string }> = {
 
 export function WorkSection() {
   return (
-    <section id="work" className="border-y border-line/60 bg-ink-2/40 px-6 py-24 lg:px-8 lg:py-32">
+    <section id="work" className="px-6 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-6xl">
         <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="font-heavy text-3xl leading-tight font-normal tracking-[-0.02em] text-paper lg:text-[2.6rem]">
@@ -29,7 +29,7 @@ export function WorkSection() {
                   href={product.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-ink-2 transition-all duration-500 hover:-translate-y-1 hover:border-accent/40"
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_24px_50px_-22px_rgba(22,24,29,0.25)] ring-1 ring-black/5 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_30px_60px_-22px_rgba(22,24,29,0.32)]"
                 >
                   <div className="relative h-44 overflow-hidden border-b border-line bg-ink-3">
                     <Image

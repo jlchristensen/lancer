@@ -20,9 +20,9 @@ export function FloatingCard({
 }) {
   return (
     <div
-      className={`rounded-xl bg-gradient-to-b from-[#2c3852] to-[#131c30] p-px shadow-[0_24px_50px_-16px_rgba(0,0,0,0.9)] ${className}`}
+      className={`rounded-xl bg-white p-px shadow-[0_18px_40px_-14px_rgba(22,24,29,0.28)] ring-1 ring-black/5 ${className}`}
     >
-      <div className="rounded-[calc(0.75rem-1px)] bg-ink-2/95 px-4 py-3 backdrop-blur-sm">
+      <div className="rounded-[calc(0.75rem-1px)] bg-white px-4 py-3">
         <p className="font-heavy text-[10px] font-semibold tracking-[0.16em] text-mute-dim uppercase">
           {label}
         </p>

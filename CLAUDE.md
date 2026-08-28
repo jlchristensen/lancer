@@ -87,9 +87,17 @@ Calendly URL into that one field and the whole site switches over.
 
 ## Design System
 
-The design is **dark SaaS**: deep navy ground, one blue accent, a soft glow
-behind the hero, and the live products shown in device frames. Replaced the
-earlier monochrome "Silk" direction in Aug 2026 (Silk is in git history).
+The design is **light pastel** in the Polymer mould: a lavender-into-peach
+gradient wash painted once on `body` (fixed attachment, every section shares
+the same light), white surfaces, near-black text, **black pill buttons** —
+deliberately not blue — a floating white nav, and the live products in device
+frames. It replaced the dark-navy direction, which replaced "Silk"; both are
+in git history. Audience reasoning: the site sells to business owners, not
+engineers, and soft light pages read approachable where dark reads dev-tool.
+
+The colour tokens kept their NAMES through the flip (`ink` family = surfaces,
+`paper` = primary text), so components did not need rewriting. Mind that when
+reading class names: `bg-ink` is white here.
 
 Three rules carried over from how the direction was chosen, and they still hold:
 
